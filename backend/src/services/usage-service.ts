@@ -60,7 +60,7 @@ export async function checkUsageLimits(tenantId: string): Promise<boolean> {
     );
 
     if (
-      limits.messagesPerMonth !== 'unlimited' &&
+      typeof limits.messagesPerMonth === 'number' &&
       messageCount >= limits.messagesPerMonth
     ) {
       logger.warn(

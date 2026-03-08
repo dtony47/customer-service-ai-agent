@@ -65,7 +65,7 @@ export const authenticateApiKey = async (
       return res.status(403).json({ error: 'Invalid API key' });
     }
 
-    req.user = {
+    (req as any).user = {
       userId: auth.id,
       tenantId: auth.tenant_id,
       email: auth.email,

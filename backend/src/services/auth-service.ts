@@ -173,7 +173,7 @@ export async function createTenant(
  */
 export async function validateApiKey(
   apiKey: string
-): Promise<{ user: any; tenant: any } | null> {
+): Promise<any> {
   const result = await pool.query(
     `SELECT u.*, t.* FROM users u 
      JOIN tenants t ON u.tenant_id = t.id 

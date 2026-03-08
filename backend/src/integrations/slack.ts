@@ -14,9 +14,9 @@ export async function initializeSlack(): Promise<void> {
     });
 
     // Listen to all messages
-    slackApp.message(async ({ message, say }) => {
+    slackApp.message(async ({ message, say }: any) => {
       try {
-        if (message.type === 'message' && message.text) {
+        if (message.type === 'message' && 'text' in message && message.text) {
           const userMessage = sanitizeInput(message.text);
 
           // Generate AI response
@@ -44,10 +44,10 @@ export async function initializeSlack(): Promise<void> {
     });
 
     // Listen to app mentions
-    slackApp.mention(async ({ message, say }) => {
+    slackApp.event('app_mention', async ({ event, say }: any) => {
       try {
-        if (message.text) {
-          const userMessage = sanitizeInput(message.text.replace(/<@[^>]+>/g, '').trim());
+        if ('text' in event && event.text) {
+          const userMessage = sanitizeInput(event.text.replace(/<@[^>]+>/g, '').trim());
 
           const aiResponse = await generateAIResponse(userMessage, {
             policies: [],

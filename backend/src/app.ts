@@ -16,8 +16,8 @@ import channelRoutes from './routes/channels.js';
 import billingRoutes from './routes/billing.js';
 
 // Import middleware
-import { errorHandler, requestLogger, authenticateToken } from './middleware/index.js';
-import { authenticateToken as authMiddleware } from './middleware/auth.js';
+import { errorHandler, requestLogger } from './middleware/index.js';
+import { authenticateToken } from './middleware/auth.js';
 
 // Import services
 import { initializeChannels } from './services/channel-manager.js';
@@ -64,10 +64,10 @@ app.get('/health', (req: Request, res: Response) => {
 app.use('/api/auth', authRoutes);
 
 // Protected API Routes
-app.use('/api/messages', authMiddleware, messageRoutes);
-app.use('/api/kb', authMiddleware, kbRoutes);
-app.use('/api/conversations', authMiddleware, conversationRoutes);
-app.use('/api/channels', authMiddleware, channelRoutes);
+app.use('/api/messages', authenticateToken, messageRoutes);
+app.use('/api/kb', authenticateToken, kbRoutes);
+app.use('/api/conversations', authenticateToken, conversationRoutes);
+app.use('/api/channels', authenticateToken, channelRoutes);
 app.use('/api/billing', billingRoutes);
 
 // Error handling
