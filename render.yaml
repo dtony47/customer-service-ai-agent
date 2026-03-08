@@ -39,7 +39,6 @@ services:
         value: https://${{ render.project.name }}-backend.onrender.com
     numInstances: 1
     plan: standard
-    serviceIdleTimeoutMinutes: 30
 
   - type: worker
     name: background-jobs
