@@ -22,7 +22,7 @@ services:
       - key: LOG_LEVEL
         value: info
     numInstances: 1
-    plan: standard
+    plan: free
 
   - type: web
     name: frontend
@@ -35,7 +35,7 @@ services:
       - key: VITE_SOCKET_URL
         value: https://${{ render.project.name }}-backend.onrender.com
     numInstances: 1
-    plan: standard
+    plan: free
 
   - type: worker
     name: background-jobs
@@ -49,7 +49,7 @@ services:
         fromDatabase:
           name: postgres
           property: connectionString
-    plan: standard
+    plan: free
     numInstances: 1
 
 databases:
