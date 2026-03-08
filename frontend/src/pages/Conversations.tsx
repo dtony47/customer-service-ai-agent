@@ -1,4 +1,4 @@
-import { MessageCircle, X } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 export default function Conversations() {
   const conversations = [

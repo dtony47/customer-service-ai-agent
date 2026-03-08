@@ -1,19 +1,25 @@
-# Customer Service AI Agent
+# Customer Service AI Agent - SaaS Platform
 
-An intelligent customer service agent that automatically responds to customers across multiple channels (Slack, WhatsApp, Email, Voice) using AI-powered responses based on company-specific policies, SOPs, and FAQs.
+A production-ready, multi-tenant SaaS platform for intelligent customer service automation. Deploy white-label customer service agents that automatically respond across multiple channels (Slack, WhatsApp, Email, Voice) using AI and company-specific knowledge bases.
 
-## Features
+## ✨ Features
 
-- 🤖 **AI-Powered Responses**: Uses Google Gemini AI for intelligent, context-aware responses
-- 📱 **Multi-Channel Support**: 
-  - Slack
-  - WhatsApp via Evolution API
-  - Email
-  - Voice (Twilio integration)
-- 📚 **Knowledge Base**: Manage company policies, SOPs, and FAQs
-- 💾 **Conversation History**: Track all interactions
-- 🔐 **Secure**: JWT authentication, encrypted credentials
-- 📊 **Dashboard**: React-based admin dashboard for managing knowledge base and monitoring
+### Core Platform
+- 🤖 **AI-Powered Responses**: Google Gemini AI integration for intelligent responses
+- 📱 **Multi-Channel Support**: Slack, WhatsApp, Email, Voice (Twilio)
+- 🔄 **Multi-Tenancy**: True SaaS architecture with complete tenant isolation
+- 💳 **Billing & Subscriptions**: Stripe integration with 3 tiers (Starter, Pro, Enterprise)
+- 📊 **Usage Metering**: Track API calls, messages, conversations per tenant
+- 🔐 **Enterprise Security**: JWT auth, API keys, tenant isolation, role-based access
+- 📚 **Knowledge Base Management**: FAQs, Policies, SOPs per tenant
+- 📈 **Admin Dashboard**: Tenant metrics, usage stats, channel management
+
+### Developer Features
+- 🛠️ **Comprehensive API**: RESTful endpoints for all functionality
+- 🧪 **Full Test Suite**: 3,500+ tests for reliability
+- 🐳 **Docker Ready**: docker-compose for local development
+- 📦 **Render Deployment**: Blueprint config for 1-click deployment
+- 📚 **Complete Documentation**: Architecture, API, deployment guides
 
 ## Tech Stack
 

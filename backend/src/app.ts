@@ -8,16 +8,20 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 
 // Import routes
+import authRoutes from './routes/auth.js';
 import messageRoutes from './routes/messages.js';
 import kbRoutes from './routes/knowledge-base.js';
 import conversationRoutes from './routes/conversations.js';
 import channelRoutes from './routes/channels.js';
+import billingRoutes from './routes/billing.js';
 
 // Import middleware
-import { errorHandler, requestLogger } from './middleware/index.js';
+import { errorHandler, requestLogger, authenticateToken } from './middleware/index.js';
+import { authenticateToken as authMiddleware } from './middleware/auth.js';
 
 // Import services
 import { initializeChannels } from './services/channel-manager.js';
+import { initializeDatabase } from './db/schema.js';
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -55,11 +59,15 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
-// API Routes
-app.use('/api/messages', messageRoutes);
-app.use('/api/kb', kbRoutes);
-app.use('/api/conversations', conversationRoutes);
-app.use('/api/channels', channelRoutes);
+// Public Auth Routes
+app.use('/api/auth', authRoutes);
+
+// Protected API Routes
+app.use('/api/messages', authMiddleware, messageRoutes);
+app.use('/api/kb', authMiddleware, kbRoutes);
+app.use('/api/conversations', authMiddleware, conversationRoutes);
+app.use('/api/channels', authMiddleware, channelRoutes);
+app.use('/api/billing', billingRoutes);
 
 // Error handling
 app.use(errorHandler);

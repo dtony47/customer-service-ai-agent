@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { MessageCircle, Settings, BarChart3, BookOpen } from 'lucide-react';
+import { MessageCircle, Settings as SettingsIcon, BarChart3, BookOpen } from 'lucide-react';
 
 import Dashboard from './pages/Dashboard';
 import KnowledgeBase from './pages/KnowledgeBase';
@@ -48,7 +48,7 @@ export default function App() {
               to="/settings"
               className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
             >
-              <Settings size={20} />
+              <SettingsIcon size={20} />
               Settings
             </Link>
           </nav>
