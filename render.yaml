@@ -23,9 +23,6 @@ services:
         value: info
     numInstances: 1
     plan: standard
-    scaling:
-      minInstances: 1
-      maxInstances: 3
 
   - type: web
     name: frontend
