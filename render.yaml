@@ -41,12 +41,6 @@ services:
     plan: standard
     serviceIdleTimeoutMinutes: 30
 
-  - type: postgresql
-    name: postgres
-    ipAllowList: []
-    plan: free
-    maxConnections: 20
-
   - type: worker
     name: background-jobs
     runtime: node
@@ -61,3 +55,8 @@ services:
           property: connectionString
     plan: standard
     numInstances: 1
+
+databases:
+  - name: postgres
+    plan: free
+    ipAllowList: []
