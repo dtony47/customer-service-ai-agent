@@ -27,6 +27,7 @@ A production-ready, multi-tenant SaaS platform for intelligent customer service 
 - Node.js with Express.js
 - TypeScript for type safety
 - PostgreSQL for data persistence
+- **Supabase** (optional): Cloud PostgreSQL, Auth, Real-time, Storage
 - Google Gemini API for AI
 - Socket.io for real-time updates
 
@@ -35,6 +36,7 @@ A production-ready, multi-tenant SaaS platform for intelligent customer service 
 - TailwindCSS for styling
 - React Query for state management
 - Shadcn UI components
+- **Supabase** (optional): Real-time subscriptions, Storage
 
 ## Quick Start
 
@@ -216,9 +218,13 @@ npm run db:rollback
 
 See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for production deployment instructions.
 
-## Troubleshooting
+## Documentation
 
-See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for common issues and solutions.
+- **[Supabase Integration](docs/SUPABASE_SETUP.md)** - Cloud PostgreSQL, Auth, Real-time, and Storage
+- **[Architecture](docs/ARCHITECTURE.md)** - System design and multi-tenancy model
+- **[Render Deployment](docs/RENDER_DEPLOYMENT.md)** - Step-by-step Render.com deployment
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[Deployment Checklist](docs/DEPLOYMENT_CHECKLIST.md)** - Pre/post-deployment QA
 
 ## Environment Variables
 

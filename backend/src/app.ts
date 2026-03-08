@@ -22,6 +22,7 @@ import { authenticateToken as authMiddleware } from './middleware/auth.js';
 // Import services
 import { initializeChannels } from './services/channel-manager.js';
 import { initializeDatabase } from './db/schema.js';
+import { initializeSupabase } from './integrations/supabase.js';
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -87,6 +88,9 @@ let channelInitialized = false;
 // Start server
 const startServer = async () => {
   try {
+    // Initialize Supabase (optional)
+    initializeSupabase();
+
     // Initialize channel integrations
     if (!channelInitialized) {
       await initializeChannels();
