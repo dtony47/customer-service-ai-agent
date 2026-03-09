@@ -3,7 +3,8 @@
  * Initializes PostgreSQL with multi-tenant support
  */
 
-import { Pool } from 'pg';
+import pg from 'pg';
+const { Pool } = pg;
 import { logger } from '../middleware/index.js';
 
 const pool = new Pool({
