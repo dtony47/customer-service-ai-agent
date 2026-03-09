@@ -2,7 +2,7 @@ services:
   - type: web
     name: backend
     runtime: node
-    buildCommand: cd backend && npm install && npm run build
+    buildCommand: cd backend && npm install --include=dev && npm run build
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
@@ -27,8 +27,8 @@ services:
   - type: web
     name: frontend
     runtime: node
-    buildCommand: cd frontend && npm install && npm run build
-    startCommand: cd frontend && npm run preview
+    buildCommand: cd frontend && npm install --include=dev && npm run build
+    startCommand: cd frontend && npx vite preview --host 0.0.0.0 --port 10000
     envVars:
       - key: VITE_API_URL
         value: https://${{ render.project.name }}-backend.onrender.com/api
@@ -40,7 +40,7 @@ services:
   - type: worker
     name: background-jobs
     runtime: node
-    buildCommand: cd backend && npm install && npm run build
+    buildCommand: cd backend && npm install --include=dev && npm run build
     startCommand: cd backend && npm run worker
     envVars:
       - key: NODE_ENV
